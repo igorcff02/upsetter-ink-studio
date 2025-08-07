@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'body': ['Montserrat', 'sans-serif'],
+				'handwritten': ['Kalam', 'cursive'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Brand colors
+				brand: {
+					pink: 'hsl(var(--brand-pink))',
+					black: 'hsl(var(--brand-black))',
+					red: 'hsl(var(--brand-red))',
+					gray: 'hsl(var(--brand-gray))',
+					white: 'hsl(var(--brand-white))',
 				}
 			},
 			borderRadius: {

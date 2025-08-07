@@ -8,35 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Rafaela Castro Tattoo Brand Colors */
+    --background: 336 45% 89%; /* Soft pastel pink #F3CEDF */
+    --foreground: 0 0% 11%; /* Black #1B1B1B */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 98%; /* White #FAFAFA */
+    --card-foreground: 0 0% 11%; /* Black #1B1B1B */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 98%; /* White #FAFAFA */
+    --popover-foreground: 0 0% 11%; /* Black #1B1B1B */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 100% 59%; /* Vibrant red #FF2E2E */
+    --primary-foreground: 0 0% 98%; /* White #FAFAFA */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 71%; /* Medium gray #B4B4B4 */
+    --secondary-foreground: 0 0% 11%; /* Black #1B1B1B */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 336 30% 93%; /* Lighter pink */
+    --muted-foreground: 0 0% 45%; /* Darker gray */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 100% 59%; /* Vibrant red #FF2E2E */
+    --accent-foreground: 0 0% 98%; /* White #FAFAFA */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 85%; /* Light gray border */
+    --input: 336 20% 95%; /* Very light pink */
+    --ring: 0 100% 59%; /* Vibrant red */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Custom brand colors */
+    --brand-pink: 336 45% 89%; /* #F3CEDF */
+    --brand-black: 0 0% 11%; /* #1B1B1B */
+    --brand-red: 0 100% 59%; /* #FF2E2E */
+    --brand-gray: 0 0% 71%; /* #B4B4B4 */
+    --brand-white: 0 0% 98%; /* #FAFAFA */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-pink)), hsl(var(--brand-red) / 0.1));
+    --gradient-accent: linear-gradient(45deg, hsl(var(--brand-red)), hsl(var(--brand-black)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--brand-red) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--brand-red) / 0.2);
+    
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +120,118 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
+
+@layer components {
+  /* Handwritten text effect */
+  .handwritten {
+    @apply font-handwritten text-primary;
+    filter: drop-shadow(0 1px 2px hsl(var(--brand-red) / 0.2));
+  }
+  
+  /* Flower decorations */
+  .flower-decoration {
+    @apply relative;
+  }
+  
+  .flower-decoration::before {
+    content: '✿';
+    @apply absolute text-primary text-lg opacity-60;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Paper texture effect */
+  .paper-texture {
+    background-image: 
+      radial-gradient(circle at 1px 1px, hsl(var(--brand-black) / 0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+  
+  /* Tape effect */
+  .tape-effect {
+    @apply relative;
+  }
+  
+  .tape-effect::before {
+    content: '';
+    @apply absolute -top-2 left-4 w-16 h-6 bg-gray-200 opacity-70;
+    transform: rotate(-5deg);
+    border: 1px solid hsl(var(--brand-gray) / 0.3);
+  }
+  
+  /* Grunge border */
+  .grunge-border {
+    border: 2px solid hsl(var(--brand-black));
+    border-radius: 0;
+    position: relative;
+  }
+  
+  .grunge-border::before {
+    content: '';
+    @apply absolute inset-0 border-2 border-primary;
+    transform: rotate(1deg) scale(1.02);
+    z-index: -1;
+  }
+  
+  /* Button variants */
+  .btn-handwritten {
+    @apply relative bg-primary text-primary-foreground px-6 py-3 font-handwritten text-lg;
+    transform: rotate(-1deg);
+    transition: var(--transition-bounce);
+  }
+  
+  .btn-handwritten:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Hero section styling */
+  .hero-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  /* Animate drawings */
+  .draw-animation {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 2s ease-in-out forwards;
+  }
+  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Gallery hover effects */
+  .gallery-item {
+    @apply relative overflow-hidden rounded-lg;
+    transition: var(--transition-smooth);
+  }
+  
+  .gallery-item:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  /* Testimonial styling */
+  .testimonial-card {
+    @apply relative bg-card p-6 rounded-lg;
+    background: var(--gradient-primary);
+  }
+  
+  .testimonial-card::before {
+    content: '"';
+    @apply absolute -top-2 -left-2 text-6xl text-primary font-handwritten;
   }
 }
