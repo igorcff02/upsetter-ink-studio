@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import ContactForm from "@/components/landing/ContactForm";
+import FlashPreview from "@/components/landing/FlashPreview";
 const Home = () => {
   const testimonials = [
     {
@@ -143,6 +144,24 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Flash Shop Preview */}
+      <section id="flash" className="py-20 bg-card/50 scroll-mt-24 animate-fade-in">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-handwritten text-primary mb-4">Flash Tattoos</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Designs ready to ink — hand-drawn, minimal and unique.</p>
+          </div>
+          <FlashPreview />
+          <div className="text-center mt-10">
+            <Link to="/flash-shop">
+              <Button variant="outline" className="grunge-border">
+                Ver Loja Completa <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section id="community" className="py-20 bg-card scroll-mt-24 animate-fade-in">
         <div className="container mx-auto px-4">
@@ -171,27 +190,33 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Contact & Booking */}
       <section id="contact" className="py-20 hero-gradient scroll-mt-24 animate-fade-in">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-handwritten text-foreground">
-              Ready for Your Next Tattoo?
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Let's create something beautiful together. Book a consultation and bring your vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/#contact">
-                <Button size="lg" className="btn-handwritten text-lg px-8 py-4">
-                  Book Consultation <Heart className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/flash-shop">
-                <Button variant="outline" size="lg" className="grunge-border text-lg px-8 py-4">
-                  Browse Flash Designs
-                </Button>
-              </Link>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-handwritten text-foreground">Contact & Booking</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Ready to start your tattoo journey? Tell me your idea and I’ll get back to you.</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <Card className="tape-effect">
+              <CardContent className="p-8">
+                <h3 className="font-handwritten text-2xl text-primary mb-6">Book Your Session</h3>
+                <ContactForm />
+              </CardContent>
+            </Card>
+            <div className="space-y-8">
+              <Card>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <Heart className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="font-medium">@straypepperoni studio</p>
+                      <p className="text-muted-foreground">Lisbon, Portugal — by appointment</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground">For availability and questions, please include preferred dates and size.</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
