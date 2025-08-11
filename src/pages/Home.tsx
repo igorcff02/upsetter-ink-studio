@@ -4,6 +4,7 @@ import { Heart, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContactForm from "@/components/landing/ContactForm";
 import FlashPreview from "@/components/landing/FlashPreview";
+import HeroSlider from "@/components/landing/HeroSlider";
 const Home = () => {
   const testimonials = [
     {
@@ -51,10 +52,14 @@ const Home = () => {
               Tattoo with love, art, and care — by Rafaela Castro in Lisbon
             </p>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Creating beautiful, minimalistic tattoos with a personal touch at @straypepperoni studio. 
               Each piece is crafted with care, combining modern design with handmade artistry.
             </p>
+
+            <div className="max-w-5xl mx-auto mb-10">
+              <HeroSlider />
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/#contact">
@@ -62,7 +67,7 @@ const Home = () => {
                   Book a Session <Heart className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/flash-shop">
+              <Link to="/#flash">
                 <Button variant="outline" size="lg" className="grunge-border text-lg px-8 py-4">
                   Explore Flash Tattoos <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
