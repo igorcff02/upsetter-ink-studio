@@ -9,14 +9,20 @@ const Header = () => {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Portfolio", href: "/portfolio" },
+    { name: "About", href: "/#about" },
+    { name: "Portfolio", href: "/#portfolio" },
     { name: "Flash Shop", href: "/flash-shop" },
-    { name: "Community", href: "/community" },
-    { name: "Contact", href: "/contact" },
+    { name: "Community", href: "/#community" },
+    { name: "Contact", href: "/#contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    const [pathname, hash] = path.split("#");
+    if (hash) {
+      return location.pathname === pathname && location.hash === `#${hash}`;
+    }
+    return location.pathname === path;
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-sm border-b border-border tape-effect">
@@ -49,9 +55,9 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="btn-handwritten">
-              Book Session
-            </Button>
+            <Link to="/#contact">
+              <Button className="btn-handwritten">Book Session</Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -85,9 +91,9 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="btn-handwritten w-fit">
-                Book Session
-              </Button>
+              <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>
+                <Button className="btn-handwritten w-fit">Book Session</Button>
+              </Link>
             </nav>
           </div>
         )}

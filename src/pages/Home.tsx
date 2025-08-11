@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20 lg:py-32">
+      <section id="home" className="hero-gradient py-20 lg:py-32 scroll-mt-24 animate-fade-in">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Decorative flowers */}
@@ -56,7 +56,7 @@ const Home = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact">
+              <Link to="/#contact">
                 <Button size="lg" className="btn-handwritten text-lg px-8 py-4">
                   Book a Session <Heart className="ml-2 h-5 w-5" />
                 </Button>
@@ -72,7 +72,7 @@ const Home = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section className="py-20 bg-card">
+      <section id="portfolio" className="py-20 bg-card scroll-mt-24 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-handwritten text-primary mb-4">Recent Work</h2>
@@ -108,7 +108,7 @@ const Home = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-20">
+      <section id="about" className="py-20 scroll-mt-24 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -144,7 +144,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-card">
+      <section id="community" className="py-20 bg-card scroll-mt-24 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-handwritten text-primary mb-4">Client Love</h2>
@@ -172,7 +172,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 hero-gradient">
+      <section id="contact" className="py-20 hero-gradient scroll-mt-24 animate-fade-in">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-4xl lg:text-5xl font-handwritten text-foreground">
@@ -182,7 +182,7 @@ const Home = () => {
               Let's create something beautiful together. Book a consultation and bring your vision to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
+              <Link to="/#contact">
                 <Button size="lg" className="btn-handwritten text-lg px-8 py-4">
                   Book Consultation <Heart className="ml-2 h-5 w-5" />
                 </Button>
